@@ -1,0 +1,32 @@
+{
+  "name": "shimayabot",
+  "version": "1.0.0",
+  "description": "shimayabot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./*js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakapun/shimayabot.git"
+  },
+  "keywords": [
+    "bot",
+    "shimaya"
+  ],
+  "author": "Sakapun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakapun/shimayabot/issues"
+  },
+  "homepage": "https://github.com/sakapun/shimayabot#readme",
+  "dependencies": {
+    "morgan": "^1.8.1",
+    "cheerio-httpcli": "^0.6.11"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  }
+
+}
