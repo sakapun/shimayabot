@@ -3,23 +3,22 @@ const _ = require('lodash');
 
 const dabimasjp = 'http://dabimas.jp/kouryaku/';
 
-cli.fetch(`${dabimasjp}stallions`)
+let horseSex;
+let horsePanelClass;
+if (process.argv[2] === 'shuboba') {
+    horseSex = 'stallion';
+    horsePanelClass = 'stallion_list_panel';
+} else {
+    horseSex = 'broodmare';
+    horsePanelClass = 'broodmare';
+}
+
+cli.fetch(`${dabimasjp}${horseSex}s`)
 	.then((result) => {
-		const horseNames = result.$('.stallion_list_panel table span.large')
+		const horseNames = result.$(`.${horsePanelClass} table span.large`)
 			.map((i, el) => (
 				result.$(el).text().replace(/\d.*/ , '')
 			))
 			.toArray();
 		console.log(_.uniq(horseNames));
-		return;
-		const newestUrl = result.$('.top_info_message li a').eq(1);
-		return newestUrl.click();
-	})
-    .then((result) => {
-        console.log(result.$('div.info').text());
-    })
-	.catch((err) => {
-		// TODO: エラー処理実装
-		console.log(2);
 	});
-
