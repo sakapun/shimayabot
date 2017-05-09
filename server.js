@@ -7,10 +7,16 @@ cli.fetch('http://yawaragitei-shimaya.com/')
 		return newestUrl.click();
 	})
     .then((result) => {
-        console.log(result.$('div.info').text());
+		const info = result.$('div.info').text();
+        if (!/2017-05-05/.test(info)) {
+        	console.log(info);
+			console.log('new higawari!');
+		} else {
+        	console.log('not new higawari.....')
+		}
     })
 	.catch((err) => {
 		// TODO: エラー処理実装
-		console.log(2);
+		console.log(err)
 	});
 
