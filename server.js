@@ -4,7 +4,8 @@ const fs = require('fs');
 const notifier = require('node-notifier');
 
 const fileShimaya = 'shimaya_md5.txt';
-setInterval(() => {
+
+function notifyShimaya() {
     cli.fetch('http://yawaragitei-shimaya.com/')
         .then((result) => {
             const newestUrl = result.$(".top_info_message li a").eq(0);
@@ -39,4 +40,6 @@ setInterval(() => {
             // TODO: エラー処理実装
             console.log(err)
         });
-}, 60000);
+}
+setInterval(notifyShimaya, 60000);
+notifyShimaya();
