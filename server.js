@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const notifier = require('node-notifier');
 
-const fileShimaya = 'shimaya_md5.txt';
+const fileShimaya = __dirname + '/shimaya_md5.txt';
 
 function notifyShimaya() {
     cli.fetch('http://yawaragitei-shimaya.com/')
